@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   #s.description      = <<-DESC
   #DESC
 
-  s.homepage         = "https://github.com/marty-suzuki/URLEmbeddedView"
+  s.homepage         = "https://github.com/mohsinahd/URLEmbeddedView"
 
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
-  s.source           = { :git => "https://github.com/marty-suzuki/URLEmbeddedView.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/mohsinahd/URLEmbeddedView.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/marty_suzuki'
 
   s.ios.deployment_target = '8.0'
