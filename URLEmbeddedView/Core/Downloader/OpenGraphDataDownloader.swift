@@ -48,22 +48,11 @@ protocol OpenGraphDataDownloaderProtocol: class {
         let failure: (OGSession.Error, Bool) -> Void = { error, isExpired in
             completion?(.failure(error: error, isExpired: isExpired))
         }
-        if url.host?.contains("youtube.com") == true {
-            guard let request = YoutubeEmbedRequest(url: url) else {
-                completion?(.failure(error: Error.createYoutubeRequestFailed(urlString), isExpired: false))
-                return task
-            }
-            return session.send(request, task: task, success: { youtube, isExpired in
-                let data = OpenGraph.Data(youtube: youtube, sourceUrl: url.absoluteString)
-                completion?(.success(data: data, isExpired: isExpired))
-            }, failure: failure)
-        } else {
-            let request = HtmlRequest(url: url)
+        let request = HtmlRequest(url: url)
             return session.send(request, task: task, success: { html, isExpired in
                 let data = OpenGraph.Data(html: html, sourceUrl: url.absoluteString)
                 completion?(.success(data: data, isExpired: isExpired))
             }, failure: failure)
-        }
     }
 
     @objc public func cancelLoading(_ task: Task, shouldContinueDownloading: Bool) {
