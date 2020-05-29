@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = '5.0'
 
-  s.source_files = 'URLEmbeddedView/**/*.{swift}'
+  s.source_files = 'URLEmbeddedView/*.{swift}'
   s.resources    = 'Resources/*.{pdf,xcdatamodeld}'
   #s.resource_bundles = {
   #  'Resources' => ['Resources/*.pdf']
